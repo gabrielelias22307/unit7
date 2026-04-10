@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit VII Review Notes – Industrial & Economic Development</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
+    overflow-y: auto;
+    z-index: 1000;
+    padding-bottom: 20px;
+  }
+
+  .sidebar-header {
+    background: #c9a227;
+    padding: 18px 16px;
+    text-align: center;
+  }
+
+  .sidebar-header h2 {
+    color: #1a252f;
+    font-size: 0.85em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+
+  .sidebar nav ul { list-style: none; padding: 10px 0; }
+
+  .sidebar nav ul li a {
+    display: block;
+    color: #bdc3c7;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 0.88em;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar nav ul li a:hover,
+  .sidebar nav ul li a.active {
+    background: rgba(201,162,39,0.15);
+    color: #c9a227;
+    border-left-color: #c9a227;
+  }
+
+  .sidebar nav ul li.section-label {
+    color: #7f8c8d;
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 14px 20px 4px;
+    font-weight: 700;
+  }
+
+  /* ── HEADER ── */
+  header {
+    margin-left: 280px;
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 60%, #34495e 100%);
+    padding: 40px 48px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: rgba(201,162,39,0.08);
+    border-radius: 50%;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: 80px;
+    width: 280px; height: 280px;
+    background: rgba(201,162,39,0.05);
+    border-radius: 50%;
+  }
+
+  .header-eyebrow {
+    color: #c9a227;
+    font-size: 0.78em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .header-title h1 {
+    color: #ffffff;
+    font-size: 2.6em;
+    font-weight: 700;
+    line-height: 1.15;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    margin-bottom: 4px;
+  }
+
+  .header-title h1 span { color: #c9a227; }
+
+  .header-subtitle {
+    color: rgba(255,255,255,0.75);
+    font-size: 1em;
+    margin-top: 8px;
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: rgba(201,162,39,0.2);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: #c9a227;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main-content {
+    margin-left: 280px;
+    padding: 32px 40px;
+    max-width: 1100px;
+  }
+
+  /* ── TOPIC SECTIONS ── */
+  .topic-section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+
+  .topic-header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 18px 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .topic-header:hover { background: linear-gradient(135deg, #1a252f, #2c3e50); }
+
+  .topic-header-left { display: flex; align-items: center; gap: 14px; }
+
+  .topic-number {
+    background: #c9a227;
+    color: #1a252f;
+    font-weight: 800;
+    font-size: 0.8em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .topic-title {
+    color: #ffffff;
+    font-size: 1.15em;
+    font-weight: 600;
+  }
+
+  .toggle-icon {
+    color: #c9a227;
+    font-size: 1.3em;
+    font-weight: 300;
+    transition: transform 0.3s;
+    user-select: none;
+  }
+
+  .toggle-icon.open { transform: rotate(180deg); }
+
+  .topic-body {
+    padding: 0 28px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+
+  .topic-body.open {
+    max-height: 9999px;
+    padding: 24px 28px 28px;
+  }
+
+  /* ── CONTENT CARDS ── */
+  .content-card {
+    background: #f8f9fb;
+    border-left: 4px solid #c9a227;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+  }
+
+  .content-card h3 {
+    color: #2c3e50;
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .content-card ul { list-style: none; padding: 0; }
+
+  .content-card ul li {
+    padding: 4px 0 4px 18px;
+    position: relative;
+    font-size: 0.93em;
+    color: #34495e;
+  }
+
+  .content-card ul li::before {
+    content: '▸';
+    color: #c9a227;
+    position: absolute;
+    left: 0;
+    font-size: 0.85em;
+    top: 5px;
+  }
+
+  .content-card p { font-size: 0.93em; color: #34495e; }
+
+  /* Two-column layout for content cards */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ── KEY CONCEPT BOXES ── */
+  .key-concept {
+    background: linear-gradient(135deg, #1a252f, #2c3e50);
+    color: #fff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+  }
+
+  .key-concept h3 {
+    color: #c9a227;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .key-concept p, .key-concept li {
+    font-size: 0.91em;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .key-concept ul { list-style: none; padding: 0; }
+
+  .key-concept ul li {
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+
+  .key-concept ul li::before {
+    content: '◆';
+    color: #c9a227;
+    position: absolute;
+    left: 0;
+    font-size: 0.7em;
+    top: 6px;
+  }
+
+  /* ── THEORY STAGES ── */
+  .stages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .stage-box {
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-top: 4px solid #c9a227;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .stage-box .stage-num {
+    background: #c9a227;
+    color: #1a252f;
+    font-weight: 800;
+    font-size: 0.75em;
+    border-radius: 50%;
+    width: 24px; height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .stage-box .stage-name {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+
+  .stage-box .stage-desc {
+    font-size: 0.75em;
+    color: #7f8c8d;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  /* ── WORLD SYSTEM DIAGRAM ── */
+  .world-system {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .ws-box {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  .ws-core { background: #2c3e50; color: #c9a227; }
+  .ws-semi { background: #34495e; color: #ecf0f1; }
+  .ws-peri { background: #ecf0f1; color: #2c3e50; border: 2px solid #bdc3c7; }
+
+  .ws-box .ws-label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .ws-box .ws-title { font-size: 1em; font-weight: 700; margin-bottom: 8px; }
+  .ws-box ul { list-style: none; padding: 0; text-align: left; }
+  .ws-box ul li { font-size: 0.78em; padding: 2px 0 2px 12px; position: relative; }
+  .ws-box ul li::before { content: '•'; position: absolute; left: 0; }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: rgba(201,162,39,0.1);
+    border: 1px solid rgba(201,162,39,0.4);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    font-size: 0.92em;
+    color: #2c3e50;
+  }
+
+  .highlight-box strong { color: #c9a227; }
+
+  /* ── SECTORS TABLE ── */
+  .sector-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+    font-size: 0.88em;
+  }
+
+  .sector-table th {
+    background: #2c3e50;
+    color: #c9a227;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .sector-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #ecf0f1;
+    color: #34495e;
+  }
+
+  .sector-table tr:nth-child(even) td { background: #f8f9fb; }
+  .sector-table tr:hover td { background: rgba(201,162,39,0.06); }
+
+  /* ── REVIEW QUESTIONS ── */
+  .review-questions {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e0e7ef;
+    padding: 22px 24px;
+    margin-top: 22px;
+  }
+
+  .review-questions h3 {
+    color: #2c3e50;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c9a227;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .review-questions h3::before {
+    content: '✏️';
+    font-size: 1em;
+  }
+
+  .question-block { margin-bottom: 20px; }
+
+  .question-text {
+    font-size: 0.93em;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .question-text .q-num {
+    display: inline-block;
+    background: #c9a227;
+    color: #1a252f;
+    font-size: 0.8em;
+    font-weight: 800;
+    width: 22px; height: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    border: 1.5px solid #dde3ec;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.88em;
+    font-family: inherit;
+    color: #2c3e50;
+    resize: vertical;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #fafbfd;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: #c9a227;
+    box-shadow: 0 0 0 3px rgba(201,162,39,0.12);
+    background: #fff;
+  }
+
+  textarea.saved { border-color: #27ae60; background: #f0faf4; }
+
+  /* ── VOCABULARY SECTION ── */
+  .vocab-section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+
+  .vocab-header {
+    background: linear-gradient(135deg, #1a252f, #c9a227);
+    padding: 20px 28px;
+  }
+
+  .vocab-header h2 {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .vocab-body { padding: 28px; }
+
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .vocab-card {
+    border: 1px solid #e0e7ef;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .vocab-term {
+    background: #2c3e50;
+    color: #c9a227;
+    font-weight: 700;
+    font-size: 0.88em;
+    padding: 10px 14px;
+  }
+
+  .vocab-def-area {
+    padding: 8px 10px;
+    background: #fafbfd;
+  }
+
+  .vocab-def-area textarea {
+    min-height: 64px;
+    font-size: 0.84em;
+    border: 1px solid #dde3ec;
+  }
+
+  /* ── FLOATING SAVE CONSOLE ── */
+  .save-console {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #1a252f, #2c3e50);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    z-index: 2000;
+    min-width: 220px;
+    border: 1px solid rgba(201,162,39,0.3);
+  }
+
+  .save-console-title {
+    color: #c9a227;
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .save-btn {
+    width: 100%;
+    background: #c9a227;
+    color: #1a252f;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 0;
+    font-size: 0.88em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-bottom: 8px;
+  }
+
+  .save-btn:hover { background: #e0b630; transform: translateY(-1px); }
+  .save-btn:active { transform: translateY(0); }
+
+  .print-btn {
+    width: 100%;
+    background: transparent;
+    color: #bdc3c7;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 7px 0;
+    font-size: 0.82em;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 8px;
+  }
+
+  .print-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+  .pdf-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #c9a227;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 6px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 4px;
+    transition: color 0.2s;
+  }
+
+  .pdf-link:hover { color: #e0b630; text-decoration: underline; }
+
+  .pdf-link::before {
+    content: '📄';
+    font-size: 1em;
+  }
+
+  .save-status {
+    font-size: 0.75em;
+    color: #27ae60;
+    text-align: center;
+    min-height: 16px;
+    margin-top: 4px;
+  }
+
+  /* ── EXPAND ALL BUTTON ── */
+  .expand-all-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .expand-btn {
+    background: #2c3e50;
+    color: #c9a227;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.82em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .expand-btn:hover { background: #1a252f; }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    .sidebar, .save-console, .expand-all-bar { display: none !important; }
+    header, .main-content { margin-left: 0 !important; }
+    .topic-body { max-height: none !important; padding: 24px 28px 28px !important; }
+    body { background: #fff; }
+    .topic-section, .vocab-section { box-shadow: none; border: 1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ SIDEBAR -->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h2>AP Human Geography<br>Unit VII Review Notes</h2>
+  </div>
+  <nav>
+    <ul>
+      <li class="section-label">Topics</li>
+      <li><a href="#topic-71">7.1 The Industrial Revolution</a></li>
+      <li><a href="#topic-72">7.2 Economic Sectors</a></li>
+      <li><a href="#topic-73">7.3 Measures of Development</a></li>
+      <li><a href="#topic-74">7.4 Women &amp; Economic Dev.</a></li>
+      <li><a href="#topic-75">7.5 Theories of Development</a></li>
+      <li><a href="#topic-76">7.6 Trade &amp; World Economy</a></li>
+      <li><a href="#topic-77">7.7 Changes in World Economy</a></li>
+      <li><a href="#topic-78">7.8 Sustainable Development</a></li>
+      <li class="section-label">Reference</li>
+      <li><a href="#vocab">Essential Terms &amp; Vocabulary</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════════════════════ HEADER -->
+<header>
+  <div class="header-eyebrow">AP Human Geography</div>
+  <div class="header-title">
+    <h1>Unit VII: <span>Industrial &amp; Economic</span><br>Development</h1>
+  </div>
+  <div class="header-subtitle">Patterns and Processes</div>
+  <div class="header-badge">Review Notes</div>
+</header>
+
+<!-- ═══════════════════════════════════════════════ MAIN CONTENT -->
+<div class="main-content">
+
+  <div class="expand-all-bar">
+    <button class="expand-btn" onclick="expandAll()">Expand All</button>
+    <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
+  </div>
+
+  <!-- ─────────────────────── 7.1 The Industrial Revolution -->
+  <div class="topic-section" id="topic-71">
+    <div class="topic-header" onclick="toggleSection('71')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.1</span>
+        <span class="topic-title">The Industrial Revolution</span>
+      </div>
+      <span class="toggle-icon" id="icon-71">▼</span>
+    </div>
+    <div class="topic-body" id="body-71">
+
+      <div class="key-concept">
+        <h3>What was the Industrial Revolution?</h3>
+        <p>A transformation from agrarian, handicraft economies to one dominated by industry and machine manufacturing — beginning in Great Britain in the mid-1700s and spreading globally.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Why Great Britain First?</h3>
+          <ul>
+            <li>Abundant coal and iron ore deposits</li>
+            <li>Navigable rivers and coastline for transportation</li>
+            <li>Vast colonial empire (raw materials + markets)</li>
+            <li>Stable government encouraging trade</li>
+            <li>Skilled labor force and entrepreneurial culture</li>
+            <li>Water power from rivers</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Key Inventions &amp; Changes</h3>
+          <ul>
+            <li>Steam engine (James Watt) — powered factories &amp; transportation</li>
+            <li>Textile machinery — spinning jenny, power loom</li>
+            <li>Shift from cottage industry to factory system</li>
+            <li>Coal replaced wood as primary fuel</li>
+            <li>Fossil fuels drove industrialization</li>
+            <li>Railroads connected industrial regions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Spread of Industrialization</h3>
+          <ul>
+            <li>Western Europe (Ruhr Valley, Germany)</li>
+            <li>United States (Pittsburgh, Midwest)</li>
+            <li>Japan (late 19th century)</li>
+            <li>Later: Soviet Union, China</li>
+            <li>Spread along trade and colonial networks</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Urbanization &amp; Population</h3>
+          <ul>
+            <li>Industrialization drove rapid urbanization</li>
+            <li>Workers moved from rural farms to urban factories</li>
+            <li>Cities grew dramatically near industrial sites</li>
+            <li>Population boom: better food supply &amp; medicine</li>
+            <li>Poor urban living conditions initially (tenements)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3>The Berlin Conference (1884–1885)</h3>
+        <ul>
+          <li>European powers divided Africa among themselves without African input</li>
+          <li>Goal: access to raw materials (rubber, ivory, minerals) and new markets</li>
+          <li>Fueled further industrial expansion in Europe</li>
+          <li>Led to colonialism and long-term economic inequality</li>
+        </ul>
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.1</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>What was the Industrial Revolution, and why did it begin in Great Britain?</div>
+          <textarea id="q71_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>What natural resources facilitated the Industrial Revolution? How did access to these resources give Great Britain an advantage?</div>
+          <textarea id="q71_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>What was the relationship between industrialization and urbanization? How did industrial cities differ from pre-industrial ones?</div>
+          <textarea id="q71_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>How did the Berlin Conference connect to industrialization in Europe? What were its long-term consequences for Africa?</div>
+          <textarea id="q71_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────── 7.2 Economic Sectors -->
+  <div class="topic-section" id="topic-72">
+    <div class="topic-header" onclick="toggleSection('72')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.2</span>
+        <span class="topic-title">Economic Sectors &amp; Industrial Location</span>
+      </div>
+      <span class="toggle-icon" id="icon-72">▼</span>
+    </div>
+    <div class="topic-body" id="body-72">
+
+      <table class="sector-table">
+        <thead>
+          <tr>
+            <th>Sector</th>
+            <th>Description</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Primary</strong></td>
+            <td>Extraction of raw materials from the natural environment</td>
+            <td>Farming, mining, fishing, forestry, ranching</td>
+          </tr>
+          <tr>
+            <td><strong>Secondary</strong></td>
+            <td>Manufacturing and processing raw materials into finished goods</td>
+            <td>Steel mills, auto factories, food processing</td>
+          </tr>
+          <tr>
+            <td><strong>Tertiary</strong></td>
+            <td>Service industry — connecting producers to consumers</td>
+            <td>Retail, banking, education, healthcare, tourism</td>
+          </tr>
+          <tr>
+            <td><strong>Quaternary</strong></td>
+            <td>Knowledge-based services — research and information</td>
+            <td>R&amp;D, information technology, consulting, finance</td>
+          </tr>
+          <tr>
+            <td><strong>Quinary</strong></td>
+            <td>Highest-level executive and government decision-making</td>
+            <td>CEOs, government officials, top scientists, judges</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="key-concept">
+        <h3>Weber's Least Cost Theory</h3>
+        <p>Alfred Weber (1909) argued that industries locate where <strong style="color:#c9a227">production costs are minimized</strong> — particularly transportation, labor, and agglomeration economies.</p>
+        <ul>
+          <li><strong style="color:#c9a227">Transportation costs</strong> — the primary factor; minimize distance between raw materials and markets</li>
+          <li><strong style="color:#c9a227">Labor costs</strong> — industries may relocate for cheaper labor even if transportation costs rise</li>
+          <li><strong style="color:#c9a227">Agglomeration</strong> — clustering of industries to share infrastructure and services</li>
+          <li><strong style="color:#c9a227">Material Index</strong> — ratio of weight of inputs to weight of outputs; &gt;1 means locate near raw materials; &lt;1 means locate near markets</li>
+          <li><strong style="color:#c9a227">Weight-losing industries</strong> (e.g., copper smelting) locate near raw materials</li>
+          <li><strong style="color:#c9a227">Weight-gaining industries</strong> (e.g., bottling) locate near consumers</li>
+        </ul>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Break-of-Bulk Point</h3>
+          <ul>
+            <li>A location where goods are transferred from one mode of transportation to another</li>
+            <li>Typically located at ports, airports, or rail junctions</li>
+            <li>Industries often locate here to reduce shipping costs</li>
+            <li>Example: goods arriving by ship, transferred to trucks</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Core-Periphery Model</h3>
+          <ul>
+            <li>Core: wealthy, industrialized regions that dominate the economy</li>
+            <li>Periphery: less developed regions supplying raw materials</li>
+            <li>Resources and wealth flow from periphery to core</li>
+            <li>Relates to Wallerstein's World System Theory (see 7.5)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.2</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>Define each of the five economic sectors and give a job example for each. How does the sector structure of an economy indicate its level of development?</div>
+          <textarea id="q72_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>Describe Alfred Weber's Least Cost Theory. What three factors did he identify, and how do they influence where industries locate?</div>
+          <textarea id="q72_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>What is a break-of-bulk point? Why might industries choose to locate at these sites?</div>
+          <textarea id="q72_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>Explain the core-periphery model. How does this relate to patterns of industrial location globally?</div>
+          <textarea id="q72_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────── 7.3 Measures of Development -->
+  <div class="topic-section" id="topic-73">
+    <div class="topic-header" onclick="toggleSection('73')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.3</span>
+        <span class="topic-title">Measures of Development</span>
+      </div>
+      <span class="toggle-icon" id="icon-73">▼</span>
+    </div>
+    <div class="topic-body" id="body-73">
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Economic Indicators</h3>
+          <ul>
+            <li><strong>GDP</strong> (Gross Domestic Product) — total value of goods &amp; services produced <em>within</em> a country's borders</li>
+            <li><strong>GNP</strong> (Gross National Product) — total value produced by a country's nationals, including abroad</li>
+            <li><strong>GNI per capita</strong> (Gross National Income) — GNI divided by population; World Bank's preferred measure</li>
+            <li>Higher GNI per capita generally indicates greater development</li>
+            <li>Limitations: doesn't capture inequality or quality of life</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Social Indicators</h3>
+          <ul>
+            <li><strong>Literacy rate</strong> — % of adults who can read/write; higher = more developed</li>
+            <li><strong>Infant mortality rate</strong> — deaths per 1,000 live births; lower = more developed</li>
+            <li><strong>Access to health care</strong> — doctors per capita, hospitals, life expectancy</li>
+            <li><strong>Fertility rate</strong> — higher in developing countries; linked to education &amp; economic opportunity</li>
+            <li><strong>Life expectancy</strong> — longer in more developed countries</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="key-concept">
+        <h3>Human Development Index (HDI)</h3>
+        <p>A composite measure created by the UN that combines three dimensions of development:</p>
+        <ul>
+          <li><strong style="color:#c9a227">Life expectancy</strong> — a long and healthy life</li>
+          <li><strong style="color:#c9a227">Education</strong> — years of schooling and expected years of schooling</li>
+          <li><strong style="color:#c9a227">Standard of living</strong> — GNI per capita (PPP)</li>
+        </ul>
+        <p style="margin-top:8px;">HDI score ranges from 0 to 1; higher scores = greater development. Countries are ranked as very high, high, medium, or low development.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Gender Inequality Index (GII)</h3>
+          <ul>
+            <li>Measures gender-based disadvantages in three dimensions: reproductive health, empowerment, labor market</li>
+            <li>Higher GII score = greater inequality between genders</li>
+            <li>Often higher in less developed countries</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Formal vs. Informal Economy</h3>
+          <ul>
+            <li><strong>Formal economy</strong> — official, taxed, regulated, counted in GDP</li>
+            <li><strong>Informal economy</strong> — unofficial, untaxed, unregulated (street vendors, day labor)</li>
+            <li>Informal sector is larger in developing countries</li>
+            <li>Workers have fewer protections in informal economy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>Key Insight:</strong> No single indicator fully captures development. The HDI combines economic and social measures, but even it has limitations — it doesn't capture inequality <em>within</em> a country (addressed by the Inequality-adjusted HDI).
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.3</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>What is GNI per capita? How does it help measure economic development, and what are its limitations?</div>
+          <textarea id="q73_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>What is the Human Development Index (HDI)? What three dimensions does it measure, and why is it considered more comprehensive than GDP alone?</div>
+          <textarea id="q73_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>How can literacy rates, infant mortality, and access to health care help measure social and economic development? Give examples.</div>
+          <textarea id="q73_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>What is the difference between the formal and informal economy? Why is the informal sector larger in developing countries?</div>
+          <textarea id="q73_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────── 7.4 Women & Economic Development -->
+  <div class="topic-section" id="topic-74">
+    <div class="topic-header" onclick="toggleSection('74')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.4</span>
+        <span class="topic-title">Women &amp; Economic Development</span>
+      </div>
+      <span class="toggle-icon" id="icon-74">▼</span>
+    </div>
+    <div class="topic-body" id="body-74">
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Gender Wage Gap</h3>
+          <ul>
+            <li>Women earn less than men in virtually every country</li>
+            <li>Gap is larger in developing countries</li>
+            <li>Caused by: discrimination, occupational segregation, unpaid domestic labor</li>
+            <li>Reducing the gap is linked to economic growth</li>
+            <li>GEM (Gender Empowerment Measure) tracks women's participation in political &amp; economic life</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Employment Opportunities</h3>
+          <ul>
+            <li>Women's employment rates vary widely by region and culture</li>
+            <li>Higher education for women → higher labor force participation</li>
+            <li>Women often concentrated in low-paying service jobs</li>
+            <li>Export-processing zones often employ large numbers of women</li>
+            <li>When women work, families and economies benefit</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="key-concept">
+        <h3>Microloans</h3>
+        <p>Small loans (sometimes just a few dollars) given to poor entrepreneurs — especially women — in developing countries to start or expand small businesses.</p>
+        <ul>
+          <li>Pioneered by Muhammad Yunus and the <strong style="color:#c9a227">Grameen Bank</strong> in Bangladesh</li>
+          <li>Allow women to buy equipment, stock, or materials without access to traditional banks</li>
+          <li>Recipients often lack collateral but repayment rates are very high</li>
+          <li>Creates a multiplier effect: one loan → business → income → school fees → community growth</li>
+          <li>Muhammad Yunus won the Nobel Peace Prize (2006) for this innovation</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <strong>Big Picture:</strong> When women are educated, employed, and economically empowered, countries develop faster. Investing in women's economic participation is one of the most effective development strategies.
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.4</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>Compare and contrast the role of men and women in the workforce. What factors explain the gender wage gap?</div>
+          <textarea id="q74_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>What is a microloan? How have microloans created opportunities for women in developing countries?</div>
+          <textarea id="q74_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>What factors can be used to measure gender inequality? How do these measures differ between developed and developing countries?</div>
+          <textarea id="q74_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>Why is women's economic empowerment considered a key driver of national development? Provide specific examples.</div>
+          <textarea id="q74_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────── 7.5 Theories of Development -->
+  <div class="topic-section" id="topic-75">
+    <div class="topic-header" onclick="toggleSection('75')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.5</span>
+        <span class="topic-title">Theories of Development</span>
+      </div>
+      <span class="toggle-icon" id="icon-75">▼</span>
+    </div>
+    <div class="topic-body" id="body-75">
+
+      <div class="content-card">
+        <h3>Rostow's Stages of Economic Growth (Modernization Theory)</h3>
+      </div>
+
+      <div class="stages-grid">
+        <div class="stage-box">
+          <div class="stage-num">1</div>
+          <div class="stage-name">Traditional Society</div>
+          <div class="stage-desc">Subsistence farming; limited technology; rigid social structure</div>
+        </div>
+        <div class="stage-box">
+          <div class="stage-num">2</div>
+          <div class="stage-name">Preconditions for Take-off</div>
+          <div class="stage-desc">External investment; entrepreneurship emerges; infrastructure develops</div>
+        </div>
+        <div class="stage-box">
+          <div class="stage-num">3</div>
+          <div class="stage-name">Take-off</div>
+          <div class="stage-desc">Rapid industrial growth; urbanization; manufacturing expands</div>
+        </div>
+        <div class="stage-box">
+          <div class="stage-num">4</div>
+          <div class="stage-name">Drive to Maturity</div>
+          <div class="stage-desc">Diversified economy; technology spreads; global trade integration</div>
+        </div>
+        <div class="stage-box">
+          <div class="stage-num">5</div>
+          <div class="stage-name">Age of High Mass Consumption</div>
+          <div class="stage-desc">Consumer goods dominate; service sector leads; high living standards</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>Critique of Rostow:</strong> Assumes all countries follow the same path as Western nations. Critics argue it ignores colonial history and global power inequalities that prevent developing countries from advancing freely.
+      </div>
+
+      <div class="world-system">
+        <div class="ws-box ws-core">
+          <div class="ws-label">Core</div>
+          <div class="ws-title">Core Countries</div>
+          <ul>
+            <li>Highly developed</li>
+            <li>High wages &amp; technology</li>
+            <li>Dominate global trade</li>
+            <li>USA, W. Europe, Japan</li>
+          </ul>
+        </div>
+        <div class="ws-box ws-semi">
+          <div class="ws-label">Semi-Periphery</div>
+          <div class="ws-title">Semi-Periphery</div>
+          <ul>
+            <li>Industrializing nations</li>
+            <li>Some manufacturing</li>
+            <li>Between core &amp; periphery</li>
+            <li>Brazil, China, India</li>
+          </ul>
+        </div>
+        <div class="ws-box ws-peri">
+          <div class="ws-label">Periphery</div>
+          <div class="ws-title">Periphery Countries</div>
+          <ul>
+            <li>Less developed</li>
+            <li>Low wages</li>
+            <li>Export raw materials</li>
+            <li>Sub-Saharan Africa</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Wallerstein's World System Theory</h3>
+          <ul>
+            <li>The capitalist world economy is divided into core, semi-periphery, and periphery</li>
+            <li>Core countries extract wealth from periphery</li>
+            <li>This system maintains global inequality</li>
+            <li>Countries can move between categories but the hierarchy persists</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Dependency Theory</h3>
+          <ul>
+            <li>Underdevelopment is not a natural stage but a result of exploitation</li>
+            <li>Core countries deliberately keep periphery countries dependent</li>
+            <li>Trade relationships are unequal (low-value exports, high-value imports)</li>
+            <li>Commodity dependence: relying on one or few raw material exports</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.5</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>Describe Rostow's Five Stages of Economic Growth. At which stage do you think most sub-Saharan African countries currently are? Explain.</div>
+          <textarea id="q75_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>Describe Wallerstein's World System Theory. What does it mean to be a "core," "semi-periphery," or "periphery" country?</div>
+          <textarea id="q75_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>What is dependency theory? How does it differ from Rostow's modernization theory in explaining why some countries remain poor?</div>
+          <textarea id="q75_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>What is commodity dependence? How can relying on one export make a country economically vulnerable? Give an example.</div>
+          <textarea id="q75_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────── 7.6 Trade & World Economy -->
+  <div class="topic-section" id="topic-76">
+    <div class="topic-header" onclick="toggleSection('76')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.6</span>
+        <span class="topic-title">Trade &amp; the World Economy</span>
+      </div>
+      <span class="toggle-icon" id="icon-76">▼</span>
+    </div>
+    <div class="topic-body" id="body-76">
+
+      <div class="two-col">
+        <div class="key-concept">
+          <h3>Comparative Advantage</h3>
+          <p>A country should specialize in producing goods it can make most <strong style="color:#c9a227">efficiently relative to other goods</strong> — even if another country can make it cheaper in absolute terms. This specialization maximizes global production.</p>
+        </div>
+        <div class="key-concept">
+          <h3>Complementary Advantage</h3>
+          <p>Countries trade because they have <strong style="color:#c9a227">different resources and specializations</strong> — what one country produces, another needs. This creates mutually beneficial trade relationships.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Trade Barriers</h3>
+          <ul>
+            <li><strong>Tariff</strong> — a tax on imported goods; protects domestic industries but raises prices for consumers</li>
+            <li><strong>Trade embargo</strong> — a complete ban on trade with a country (e.g., US embargo on Cuba)</li>
+            <li><strong>Quotas</strong> — limits on the amount of a good that can be imported</li>
+            <li><strong>Subsidies</strong> — government support for domestic industries to make them more competitive</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Free Trade</h3>
+          <ul>
+            <li>Trade without tariffs, quotas, or other barriers</li>
+            <li>Increases efficiency and lowers prices</li>
+            <li>Critics: can hurt domestic workers and industries</li>
+            <li>Promoted by WTO, regional trade agreements</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3>Major Trade Organizations &amp; Agreements</h3>
+        <ul>
+          <li><strong>WTO</strong> (World Trade Organization) — sets rules for international trade; resolves trade disputes between member countries</li>
+          <li><strong>EU</strong> (European Union) — free trade bloc and political union; common market with shared currency (Euro) among many members</li>
+          <li><strong>OPEC</strong> (Organization of Petroleum Exporting Countries) — oil cartel that controls production to influence global oil prices</li>
+          <li><strong>MERCOSUR</strong> — South American trade bloc (Brazil, Argentina, Uruguay, Paraguay)</li>
+          <li><strong>NAFTA/USMCA</strong> — free trade agreement between US, Canada, and Mexico</li>
+          <li><strong>IMF</strong> (International Monetary Fund) — provides emergency loans to countries facing financial crises; often attaches conditions requiring economic reforms</li>
+          <li><strong>World Bank</strong> — provides development loans to poorer countries for infrastructure, education, health projects</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <strong>International Debt:</strong> Many developing countries borrowed heavily from the IMF and World Bank. Structural adjustment programs (conditions attached to loans) often required cutting social spending, leading to controversy about whether they help or harm development.
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.6</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>What is comparative advantage? How does it explain why countries specialize in certain products and trade with each other?</div>
+          <textarea id="q76_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>What is the role of international trade organizations such as the EU, WTO, and MERCOSUR? How do trading blocs affect member economies?</div>
+          <textarea id="q76_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>What is OPEC? How does it use its position to influence the global economy? What happens when OPEC cuts oil production?</div>
+          <textarea id="q76_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>What is international debt? How can reliance on IMF and World Bank loans affect a developing country's sovereignty and economic policy?</div>
+          <textarea id="q76_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────── 7.7 Changes as a Result of the World Economy -->
+  <div class="topic-section" id="topic-77">
+    <div class="topic-header" onclick="toggleSection('77')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.7</span>
+        <span class="topic-title">Changes as a Result of the World Economy</span>
+      </div>
+      <span class="toggle-icon" id="icon-77">▼</span>
+    </div>
+    <div class="topic-body" id="body-77">
+
+      <div class="two-col">
+        <div class="key-concept">
+          <h3>Fordism vs. Post-Fordism</h3>
+          <ul>
+            <li><strong style="color:#c9a227">Fordism</strong> — mass production using assembly lines (pioneered by Henry Ford); standardized products; workers do one repetitive task; large factories</li>
+            <li><strong style="color:#c9a227">Post-Fordism</strong> — flexible production; smaller batches; varied products; workers multi-task; responds quickly to market demand; relies on technology</li>
+            <li>Transition from Fordism to Post-Fordism = shift in how and where things are made</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Offshoring vs. Outsourcing</h3>
+          <ul>
+            <li><strong>Offshoring</strong> — moving production operations to another country (to access cheaper labor or resources)</li>
+            <li><strong>Outsourcing</strong> — contracting specific tasks or services to outside companies (domestic or foreign)</li>
+            <li>Both reduce costs for companies but can eliminate jobs in home country</li>
+            <li>Example: US companies outsource call centers to India; offshore manufacturing to China</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Deindustrialization</h3>
+          <ul>
+            <li>Decline of manufacturing in developed countries as factories move overseas</li>
+            <li>Rust Belt in US: former manufacturing cities (Detroit, Pittsburgh) lost jobs</li>
+            <li>Workers shift toward service and knowledge-based jobs</li>
+            <li>Creates economic hardship in affected regions</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>New International Division of Labor</h3>
+          <ul>
+            <li>Manufacturing has shifted to developing countries with lower labor costs</li>
+            <li>Developed countries focus on R&amp;D, design, management (quaternary/quinary)</li>
+            <li>Global supply chains: components made in multiple countries, assembled elsewhere</li>
+            <li>Example: iPhone designed in US, components from many countries, assembled in China</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Special Economic Zones (SEZs) &amp; EPZs</h3>
+          <ul>
+            <li><strong>SEZ</strong> — areas within a country with special economic regulations to attract foreign investment (lower taxes, relaxed regulations)</li>
+            <li><strong>Export-Processing Zones (EPZs)</strong> — areas where goods are manufactured primarily for export with reduced tariffs and labor regulations</li>
+            <li><strong>Maquiladoras</strong> — factories along US-Mexico border; US companies set up manufacturing in Mexico for cheaper labor; goods exported to US</li>
+            <li>China's SEZs (e.g., Shenzhen) — key to China's rapid industrialization</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Economic Geography Concepts</h3>
+          <ul>
+            <li><strong>Multiplier effect</strong> — one new industry attracts others; creates jobs; stimulates whole regional economy</li>
+            <li><strong>Agglomeration</strong> — clustering of related businesses/industries to share infrastructure, labor, and knowledge</li>
+            <li><strong>Economies of scale</strong> — cost advantages that arise from larger production volumes (per-unit cost decreases)</li>
+            <li><strong>Just-in-time delivery</strong> — inventory arrives exactly when needed; reduces storage costs; requires reliable supply chains</li>
+            <li><strong>Growth pole</strong> — a leading sector or region that stimulates economic activity in surrounding areas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3>High Technology Industries &amp; Silicon Valley</h3>
+        <ul>
+          <li>High-tech industries require skilled labor, R&amp;D investment, and university partnerships</li>
+          <li><strong>Silicon Valley</strong> (California) — global center of tech industry; grew from Stanford University research, venture capital, and clustering of tech firms</li>
+          <li><strong>Research Triangle</strong> (North Carolina) — grew around Duke, UNC, NC State; government investment was crucial</li>
+          <li>High-tech clusters create massive multiplier effects in surrounding regions</li>
+        </ul>
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.7</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>What are the consequences of outsourcing and offshoring for both the home country and the receiving country? Who benefits and who loses?</div>
+          <textarea id="q77_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>What is a special economic zone (SEZ)? What is a maquiladora? How have these helped developing countries attract industry?</div>
+          <textarea id="q77_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>How has the diffusion of industry affected countries outside the core? What is the new international division of labor?</div>
+          <textarea id="q77_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>How did investment capital, labor, and government contribute to the rise of high-tech centers like Silicon Valley and the Research Triangle?</div>
+          <textarea id="q77_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────── 7.8 Sustainable Development -->
+  <div class="topic-section" id="topic-78">
+    <div class="topic-header" onclick="toggleSection('78')">
+      <div class="topic-header-left">
+        <span class="topic-number">7.8</span>
+        <span class="topic-title">Sustainable Development</span>
+      </div>
+      <span class="toggle-icon" id="icon-78">▼</span>
+    </div>
+    <div class="topic-body" id="body-78">
+
+      <div class="key-concept">
+        <h3>What is Sustainable Development?</h3>
+        <p><strong style="color:#c9a227">Development that meets the needs of the present without compromising the ability of future generations to meet their own needs.</strong> (UN Brundtland Commission, 1987)</p>
+        <ul>
+          <li>Balances economic growth, social equity, and environmental protection</li>
+          <li>Recognized that unlimited growth on a finite planet is impossible</li>
+          <li>UN adopted 17 Sustainable Development Goals (SDGs) in 2015</li>
+        </ul>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Resource Depletion</h3>
+          <ul>
+            <li>Overuse of natural resources at rates faster than they can be replenished</li>
+            <li>Includes: deforestation, overfishing, groundwater depletion, fossil fuel exhaustion</li>
+            <li>Sustainable development seeks to use resources at sustainable rates</li>
+            <li>Renewable vs. non-renewable resources: key distinction for sustainability</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Environmental Pollution</h3>
+          <ul>
+            <li><strong>Point source pollution</strong> — pollution from a single, identifiable source (factory pipe, oil spill)</li>
+            <li><strong>Nonpoint source pollution</strong> — pollution from diffuse sources (agricultural runoff, urban stormwater)</li>
+            <li>Sustainable dev. addresses both through regulations, clean technology, and better practices</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="content-card">
+          <h3>Climate Change</h3>
+          <ul>
+            <li>Driven by greenhouse gas emissions from burning fossil fuels</li>
+            <li>Causes: rising sea levels, extreme weather, habitat destruction</li>
+            <li><strong>Carbon neutrality</strong> — achieving net zero carbon emissions</li>
+            <li><strong>Cogeneration</strong> — generating electricity from waste heat; increases efficiency</li>
+            <li>International agreements: Paris Agreement (2015)</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Ecotourism</h3>
+          <ul>
+            <li>Environmentally responsible travel to natural areas that conserves the environment and improves local well-being</li>
+            <li>Provides economic incentive to preserve natural habitats</li>
+            <li>Local communities benefit directly from conservation</li>
+            <li>Examples: wildlife safaris in Kenya, rainforest tours in Costa Rica</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3>UN Sustainable Development Goals (SDGs)</h3>
+        <ul>
+          <li>17 goals adopted by all UN member states in 2015 as part of the 2030 Agenda</li>
+          <li>Replaced the Millennium Development Goals (MDGs)</li>
+          <li>Cover: poverty, hunger, health, education, gender equality, clean water, affordable energy, decent work, innovation, reduced inequality, sustainable cities, responsible consumption, climate action, life below water, life on land, peace &amp; justice, partnerships</li>
+          <li>Goal: transform the world by addressing the most pressing economic, social, and environmental challenges</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <strong>Sustainable Development addresses:</strong> resource depletion → manage resources responsibly; mass consumption → reduce, reuse, recycle; pollution → clean technology, regulations; climate change → carbon neutrality, renewable energy; human issues → health, equity, education for all.
+      </div>
+
+      <div class="review-questions">
+        <h3>Review Questions – 7.8</h3>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">1</span>What is sustainable development? How does it balance economic growth with environmental protection and social equity?</div>
+          <textarea id="q78_1" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">2</span>How does sustainable development address natural resource depletion and mass consumption? Give specific strategies.</div>
+          <textarea id="q78_2" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">3</span>What is the difference between point source and nonpoint source pollution? How can each be addressed through sustainable development?</div>
+          <textarea id="q78_3" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">4</span>What is ecotourism? How can it support both conservation and local economic development?</div>
+          <textarea id="q78_4" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="question-block">
+          <div class="question-text"><span class="q-num">5</span>What are the UN's Sustainable Development Goals? Choose two SDGs and explain how they connect to topics covered in Unit VII.</div>
+          <textarea id="q78_5" oninput="markUnsaved(this)" placeholder="Write your answer here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ VOCABULARY -->
+  <div class="vocab-section" id="vocab">
+    <div class="vocab-header">
+      <h2>Essential Terms &amp; Vocabulary</h2>
+    </div>
+    <div class="vocab-body">
+      <p style="font-size:0.88em; color:#7f8c8d; margin-bottom:20px;">Write a definition for each term in your own words. Your responses are auto-saved.</p>
+      <div class="vocab-grid">
+
+        <div class="vocab-card">
+          <div class="vocab-term">Agglomeration</div>
+          <div class="vocab-def-area"><textarea id="v_agglomeration" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Break-of-Bulk Point</div>
+          <div class="vocab-def-area"><textarea id="v_bob" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Carbon Neutrality</div>
+          <div class="vocab-def-area"><textarea id="v_carbon" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Cogeneration</div>
+          <div class="vocab-def-area"><textarea id="v_cogen" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Comparative Advantage</div>
+          <div class="vocab-def-area"><textarea id="v_comparative" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Complementary Advantage</div>
+          <div class="vocab-def-area"><textarea id="v_complementary" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Core Countries</div>
+          <div class="vocab-def-area"><textarea id="v_core" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Dependency Theory</div>
+          <div class="vocab-def-area"><textarea id="v_dependency" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Deindustrialization</div>
+          <div class="vocab-def-area"><textarea id="v_deindustrial" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Economies of Scale</div>
+          <div class="vocab-def-area"><textarea id="v_ecos" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Ecotourism</div>
+          <div class="vocab-def-area"><textarea id="v_eco" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Export-Processing Zones (EPZs)</div>
+          <div class="vocab-def-area"><textarea id="v_epz" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Free Trade Agreements</div>
+          <div class="vocab-def-area"><textarea id="v_freetrade" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">GDP (Gross Domestic Product)</div>
+          <div class="vocab-def-area"><textarea id="v_gdp" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">GII (Gender Inequality Index)</div>
+          <div class="vocab-def-area"><textarea id="v_gii" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">GNI per Capita</div>
+          <div class="vocab-def-area"><textarea id="v_gni" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">GNP (Gross National Product)</div>
+          <div class="vocab-def-area"><textarea id="v_gnp" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">HDI (Human Development Index)</div>
+          <div class="vocab-def-area"><textarea id="v_hdi" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">IMF (International Monetary Fund)</div>
+          <div class="vocab-def-area"><textarea id="v_imf" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Just-in-Time Delivery</div>
+          <div class="vocab-def-area"><textarea id="v_jit" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">MERCOSUR</div>
+          <div class="vocab-def-area"><textarea id="v_mercosur" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Microloans</div>
+          <div class="vocab-def-area"><textarea id="v_micro" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Multiplier Effect</div>
+          <div class="vocab-def-area"><textarea id="v_multiplier" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">OPEC</div>
+          <div class="vocab-def-area"><textarea id="v_opec" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Outsourcing</div>
+          <div class="vocab-def-area"><textarea id="v_outsource" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Post-Fordist Methods of Production</div>
+          <div class="vocab-def-area"><textarea id="v_postford" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Primary Sector</div>
+          <div class="vocab-def-area"><textarea id="v_primary" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Quaternary Sector</div>
+          <div class="vocab-def-area"><textarea id="v_quaternary" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Quinary Sector</div>
+          <div class="vocab-def-area"><textarea id="v_quinary" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Rostow's Stages of Economic Growth</div>
+          <div class="vocab-def-area"><textarea id="v_rostow" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Secondary Sector</div>
+          <div class="vocab-def-area"><textarea id="v_secondary" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Special Economic Zones (SEZs)</div>
+          <div class="vocab-def-area"><textarea id="v_sez" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Sustainable Development</div>
+          <div class="vocab-def-area"><textarea id="v_sustain" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Tertiary Sector</div>
+          <div class="vocab-def-area"><textarea id="v_tertiary" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">UN Sustainable Development Goals (SDGs)</div>
+          <div class="vocab-def-area"><textarea id="v_sdgs" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Wallerstein's World System Theory</div>
+          <div class="vocab-def-area"><textarea id="v_wallerstein" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">Weber's Least Cost Theory</div>
+          <div class="vocab-def-area"><textarea id="v_weber" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+        <div class="vocab-card">
+          <div class="vocab-term">World Trade Organization (WTO)</div>
+          <div class="vocab-def-area"><textarea id="v_wto" oninput="markUnsaved(this)" placeholder="Define in your own words..."></textarea></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main-content -->
+
+<!-- ═══════════════════════════════════════════════ FLOATING SAVE CONSOLE -->
+<div class="save-console">
+  <div class="save-console-title">📝 Review Notes</div>
+  <button class="save-btn" onclick="saveAll()">💾 Save All Responses</button>
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Export PDF</button>
+  <a class="pdf-link" href="Unit_VII_Industrial_Economic_Development.pdf" target="_blank">View Unit VII Slides (PDF)</a>
+  <div class="save-status" id="save-status"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ JAVASCRIPT -->
+<script>
+  // ── Toggle section open/close ──
+  function toggleSection(id) {
+    const body = document.getElementById('body-' + id);
+    const icon = document.getElementById('icon-' + id);
+    body.classList.toggle('open');
+    icon.classList.toggle('open');
+  }
+
+  function expandAll() {
+    ['71','72','73','74','75','76','77','78'].forEach(id => {
+      document.getElementById('body-' + id).classList.add('open');
+      document.getElementById('icon-' + id).classList.add('open');
+    });
+  }
+
+  function collapseAll() {
+    ['71','72','73','74','75','76','77','78'].forEach(id => {
+      document.getElementById('body-' + id).classList.remove('open');
+      document.getElementById('icon-' + id).classList.remove('open');
+    });
+  }
+
+  // ── Auto-save to localStorage ──
+  const SAVE_KEY = 'unit7_review_notes_v1';
+  let unsavedChanges = false;
+
+  function markUnsaved(el) {
+    el.classList.remove('saved');
+    unsavedChanges = true;
+  }
+
+  function saveAll() {
+    const data = {};
+    document.querySelectorAll('textarea').forEach(ta => {
+      if (ta.id) data[ta.id] = ta.value;
+    });
+    try {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+      document.querySelectorAll('textarea').forEach(ta => {
+        if (ta.value.trim()) ta.classList.add('saved');
+      });
+      unsavedChanges = false;
+      showStatus('✓ All responses saved!');
+    } catch(e) {
+      showStatus('⚠ Could not save — check browser settings');
+    }
+  }
+
+  function loadSaved() {
+    try {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      Object.entries(data).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el && val) {
+          el.value = val;
+          el.classList.add('saved');
+        }
+      });
+    } catch(e) { /* ignore */ }
+  }
+
+  function showStatus(msg) {
+    const el = document.getElementById('save-status');
+    el.textContent = msg;
+    setTimeout(() => { el.textContent = ''; }, 3000);
+  }
+
+  // ── Sidebar active link on scroll ──
+  function updateActiveLink() {
+    const sections = ['topic-71','topic-72','topic-73','topic-74','topic-75','topic-76','topic-77','topic-78','vocab'];
+    const links = document.querySelectorAll('.sidebar nav a');
+    const scrollY = window.scrollY + 100;
+
+    let active = 0;
+    sections.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) active = i;
+    });
+
+    links.forEach((link, i) => {
+      link.classList.toggle('active', i === active);
+    });
+  }
+
+  // ── Auto-save every 60 seconds ──
+  setInterval(() => {
+    if (unsavedChanges) { saveAll(); }
+  }, 60000);
+
+  // ── Init ──
+  window.addEventListener('load', () => {
+    loadSaved();
+    // Open first section by default
+    document.getElementById('body-71').classList.add('open');
+    document.getElementById('icon-71').classList.add('open');
+  });
+
+  window.addEventListener('scroll', updateActiveLink);
+
+  // ── Warn before leaving with unsaved changes ──
+  window.addEventListener('beforeunload', e => {
+    if (unsavedChanges) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
+</script>
+
+</body>
+</html>
